@@ -97,6 +97,41 @@ What's wrong with the following output? What would be the actual output? [2p] Mo
 Blackberry is created
 4
 ```
+Answer
+The output would be:
+
+Apple is created
+Blackberry is created
+4
+
+Modified code:
+```java
+class Apple {
+  public Apple() {
+        String type;
+        type = getClass().getSimpleName();
+        System.out.println(type + " is created");
+  }
+}
+
+class Blackberry extends Apple {
+  public Blackberry() {
+        super();
+  }
+
+  public int getNumber() {
+    return 4;
+  }
+}
+
+class Main {
+  public static void main(String... args) {
+    Blackberry b = new Blackberry();
+    System.out.println(Blackberry.getNumber());
+  }
+}
+```
+
 
 #### Explain what you did, and answer the questions here:
 
@@ -105,9 +140,14 @@ Blackberry is created
 
 ### Whats the difference between a Class and an Object? [2p]
 #### Your answer:
+A class is an abstract description of a type of things including characteristics (fields) and behaviors (methods). An object is a specific entity of a class. 
+Like a cat can be a class and my cat called Mici is a specific living cat.
 
 ### What is the superclass when a class doesnt extend anything? What methods will it inherit (the two most important is enough)? [2p]
 #### Your answer:
+The class "Object".  A default constructor, a getClass(), ...
+
 
 ### What is polymorphism? [2p]
 #### Your answer:
+The same expression can have more meanings / usages depending on the environment. Like overriding or interfaces.
